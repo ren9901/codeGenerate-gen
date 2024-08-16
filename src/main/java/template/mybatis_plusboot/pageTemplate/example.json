@@ -1,0 +1,329 @@
+temptData: {
+        searchtmp:{
+          list:[  {
+              label: "任务名称",
+              key: "inventoryName",
+              type: "input",
+              iniValue: "",
+              span: "8",
+            }],
+            api:"/sysVersionUpgrade/list"
+        },
+        buttonGroup:[
+            {
+              type: "addEv",
+              tmp: "addTmp",
+              name: "新增",
+            },
+        ],
+        tableData: {
+          list: [
+            { label: "时间", minWidth: "200", key: "dt0_s" },
+            { label: "日期", minWidth: "200", key: "version" },
+            { label: "姓名", minWidth: "200", key: "versionComment" },
+            { label: "性别", minWidth: "200", key: "forceFlagName" },
+          ],
+          operateWidth:'200',//操作部分的长度，按钮数量太多或太少需要设置
+          operate: [
+            {
+              type: "editEv",
+              tmp: "editTmp",
+              name: "编辑",
+            },
+            {
+              type: "viewEv",
+              name: "查看",
+              tmp: "viewTmp",
+            },
+            {
+              type: "delectEv",
+              name: "删除",
+            },
+          ],
+        },
+        addtmp:{
+          list: [
+            {
+              label: "任务名称",
+              key: "inventoryName",
+              type: "input",
+              iniValue: "",
+              ismust:'0', //0为不必填，1为必填
+              span: "8",
+            },
+            {
+              label: "所属科室", //名称
+              key: "createDeptId", //对应字段
+              type: "select", //类型
+              ismust:'0', //0为不必填，1为必填
+              span: "8", //占据的空间，一行分为24份
+              iniValue: "",
+              option: {
+                // 下拉框配置
+                api: "sysDeptListDeptByLogin", //接口
+                apiParams: { isActive: "2" }, //固定传参
+                relateParam: {
+                  //和表单中其他字段有关联的参数
+                  inventoryName: "",
+                },
+                initial: [], //初始化下拉列表（不变的值）
+                labelName: "deptCnName", //下拉列表的名称参数
+                valueName: "deptId", //下拉列表的赋值参数
+              },
+            },
+            {
+              label: "设备科室",
+              key: "deptId",
+              iniValue: "",
+              ismust:'0', //0为不必填，1为必填
+              type: "select",
+              span: "8",
+              required: true,
+              option: {
+                api: "",
+                apiParams: {},
+                relateParam: {
+                  inventoryName: "inventoryName",
+                  isActive: "2",
+                },
+                initial: [{ deptCnName: "ddd", deptId: 2222 }],
+                labelName: "deptCnName",
+                valueName: "deptId",
+              },
+            },
+            {
+              label: "radio框",
+              key: "radio",
+              iniValue: "",
+              ismust:'0', //0为不必填，1为必填
+              type: "radio",
+              span: "8",
+              option: {
+                api: "",
+                relateParam: {},
+                apiParams: {},
+                initial: [
+                  { deptCnName: "是否", deptId: 2222 },
+                  { deptCnName: "否", deptId: 33 },
+                ],
+                labelName: "deptCnName",
+                valueName: "deptId",
+              },
+            },
+            {
+              label: "checkbox",
+              key: "checkbox",
+              iniValue: "",
+              type: "checkbox",
+              ismust:'0', //0为不必填，1为必填
+              span: "8",
+              option: {
+                api: "",
+                relateParam: {},
+                initial: [
+                  { deptCnName: "是否", deptId: "2222-" },
+                  { deptCnName: "否", deptId: "33-" },
+                ],
+                labelName: "deptCnName",
+                valueName: "deptId",
+              },
+            },
+            {
+              label: "日期控件1",
+              key: "date",
+              type: "date", //单独的日期空间
+              span: "8",
+              ismust:'0', //0为不必填，1为必填
+              format: "",
+            },
+            {
+              label: "日期控件2",
+              key: "daterange", //daterange 的key暂时没用处
+              type: "daterange", //可选择开始结束日期
+              span: "8",
+              ismust:'0', //0为不必填，1为必填
+              start: "startDate", //开始日期
+              end: "endDate", //结束日期
+              format: "yyyy-MM-dd", //格式
+            },
+            {
+              label: "图片上传img",
+              key: "imgValue2",
+              type: "upload",
+              span: "16",
+              ismust:'0', //0为不必填，1为必填
+              limit: "3",
+              brigde: "fileList",
+            },
+          ],
+          buttonGroup: [
+            {
+              type: "save",
+              name: "保存",
+              excuteApi: "/test/add",
+              excuteApi: {}, //createUserId对应viewParams里头的参数
+            },
+            {
+              type: "back",
+              name: "返回",
+            },
+          ],
+        },
+        editTmp: {
+          list: [
+            {
+              label: "任务名称",
+              key: "inventoryName",
+              type: "input",
+              iniValue: "",
+              ismust:'0', //0为不必填，1为必填
+              span: "8",
+            },
+            {
+              label: "所属科室", //名称
+              key: "createDeptId", //对应字段
+              type: "select", //类型
+              ismust:'0', //0为不必填，1为必填
+              span: "8", //占据的空间，一行分为24份
+              iniValue: "",
+              option: {
+                // 下拉框配置
+                api: "sysDeptListDeptByLogin", //接口
+                apiParams: { isActive: "2" }, //固定传参
+                relateParam: {
+                  //和表单中其他字段有关联的参数
+                  inventoryName: "",
+                },
+                initial: [], //初始化下拉列表（不变的值）
+                labelName: "deptCnName", //下拉列表的名称参数
+                valueName: "deptId", //下拉列表的赋值参数
+              },
+            },
+            {
+              label: "设备科室",
+              key: "deptId",
+              iniValue: "",
+              ismust:'0', //0为不必填，1为必填
+              type: "select",
+              span: "8",
+              required: true,
+              option: {
+                api: "",
+                apiParams: {},
+                relateParam: {
+                  inventoryName: "inventoryName",
+                  isActive: "2",
+                },
+                initial: [{ deptCnName: "ddd", deptId: 2222 }],
+                labelName: "deptCnName",
+                valueName: "deptId",
+              },
+            },
+            {
+              label: "radio框",
+              key: "radio",
+              iniValue: "",
+              ismust:'0', //0为不必填，1为必填
+              type: "radio",
+              span: "8",
+              option: {
+                api: "",
+                relateParam: {},
+                apiParams: {},
+                initial: [
+                  { deptCnName: "是否", deptId: 2222 },
+                  { deptCnName: "否", deptId: 33 },
+                ],
+                labelName: "deptCnName",
+                valueName: "deptId",
+              },
+            },
+            {
+              label: "checkbox",
+              key: "checkbox",
+              iniValue: "",
+              type: "checkbox",
+              ismust:'0', //0为不必填，1为必填
+              span: "8",
+              option: {
+                api: "",
+                relateParam: {},
+                initial: [
+                  { deptCnName: "是否", deptId: "2222-" },
+                  { deptCnName: "否", deptId: "33-" },
+                ],
+                labelName: "deptCnName",
+                valueName: "deptId",
+              },
+            },
+            {
+              label: "日期控件1",
+              key: "date",
+              type: "date", //单独的日期空间
+              span: "8",
+              ismust:'0', //0为不必填，1为必填
+              format: "",
+            },
+            {
+              label: "日期控件2",
+              key: "daterange", //daterange 的key暂时没用处
+              type: "daterange", //可选择开始结束日期
+              span: "8",
+              ismust:'0', //0为不必填，1为必填
+              start: "startDate", //开始日期
+              end: "endDate", //结束日期
+              format: "yyyy-MM-dd", //格式
+            },
+            {
+              label: "图片上传img",
+              key: "imgValue2",
+              type: "upload",
+              span: "16",
+              ismust:'0', //0为不必填，1为必填
+              limit: "3",
+              brigde: "fileList",
+            },
+          ],
+          viewApi: "/test/view",
+          viewParams: {
+            createUserId: "id",//值代表从table列表中填入的对应字段
+            forceFlagName: "forceFlagName",
+          }, 
+          buttonGroup: [
+            {
+              type: "save",
+              name: "保存",
+              excuteApi: "/test/edit",
+              excuteApi: { id: "createUserId" }, //createUserId对应viewParams里头的参数
+            },
+            {
+              type: "back",
+              name: "返回",
+            },
+          ],
+        },
+        viewTmp: {
+            list: [
+            
+              {
+                label: "任务名称",
+                key: "inventoryName",
+                type: "view",
+                iniValue: "",
+                span: "8",
+              },
+
+            ],
+            viewApi: "/test/view",
+            viewParams: {
+              createUserId: "id",
+              forceFlagName: "forceFlagName",
+            }, //值代表从table列表中填入的对应字段
+            buttonGroup: [
+              {
+                type: "back",
+                name: "返回",
+              },
+            ],
+        },
+      }

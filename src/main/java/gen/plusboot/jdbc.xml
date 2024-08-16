@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+		<driverName><![CDATA[com.mysql.jdbc.Driver]]></driverName>
+		<url><![CDATA[jdbc:mysql://127.0.0.1:3306/web-blog?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai]]></url>
+		<dbName><![CDATA[web-blog]]></dbName>
+		<userName><![CDATA[root]]></userName>
+		<password><![CDATA[123456]]></password>
+		<createUser><![CDATA[renbao]]></createUser>
+		<copyright><![CDATA[自定义模板代码生成器]]></copyright>
+		<template><![CDATA[gen.plusboot.TemPathPlusBoot]]></template>
+		<genPath><![CDATA[d:/WJavaEE/codeGenerate/genCode]]></genPath>
+		<beans>
+
+			<bean desc="文章表" tableName="t_article" path="com.renxiansheng.module.blog.article" />
+
+		</beans>
+</config>
